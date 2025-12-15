@@ -119,6 +119,19 @@ For \( q = 3329 \), exhaustive enumeration over
 
 **Proof:** Exhaustive enumeration.
 
+**Numerical clarification.**  
+The empirical mean values μ_M obtained by exhaustive enumeration are very close to zero.
+More precise values are:
+
+- μ₅₁₂ ≈ 9×10⁻⁴  
+- μ₁₀₂₄ ≈ 6×10⁻⁴  
+- μ₈ ≈ 6×10⁻²  
+
+These small non-zero means are due to finite-domain effects
+(q = 3329 not divisible by M) and the fixed floor-with-tie-breaking
+rounding rule. As Var(ε_M) ≫ μ_M² in all cases,
+all concentration bounds safely use the normalization E[ε_M] = 0.
+
 ### 4.2 Normative Use of Rounding Error Statistics
 
 For the fixed modulus \( q=3329 \), **all** statistical properties of rounding error used by AFEOL-RELC are defined **exclusively** by Lemma 1.
@@ -180,6 +193,11 @@ v = \hat{w} + \frac{T}{2}\, m
 
 Hint: indices \( i \) such that  
 \( |\mathrm{center}_T(\hat{w}_i)| = \tau \).
+
+**Hint size (informative).**  
+For RELC-768R parameters, the expected hint size is approximately
+32–64 bytes per ciphertext, based on empirical distributions of
+|center_T(ŵ_i)| near the threshold τ = 3.
 
 ### 5.3 Decryption
 
