@@ -1,0 +1,17 @@
+# Editor / OS
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Build / export
+*.pdf
+*.aux
+*.log
+
+# Local notes
+notes/
