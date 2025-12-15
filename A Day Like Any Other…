@@ -1,0 +1,207 @@
+"A Day Like Any Other" — a short story about rounding gone wrong
+
+> “Rounding error is not noise.  
+> It is deterministic, measurable, and very opinionated.”
+
+---
+
+# A Day Like Any Other…
+
+Bob (staring at a Python REPL, typing while yawning):
+
+“Again.  
+The re-encryption check breaks as soon as I tweak T by 1.  
+This rounding logic feels like someone told it about quantum computing,  
+so it decided to live in a superposition between two integers.”
+
+Alice (looking at his plots, thoughtfully):
+
+“Wait.  
+Are you still assuming the rounding error is uniform?”
+
+Bob:
+
+“Well… yeah?  
+Isn’t that what everyone does?  
+‘Ideal quantization’, right?  
+That’s what the papers say…”
+
+Alice (grabs a laptop):
+
+“Let’s actually check.  
+For q = 3329, p = 512…”
+
+Bob:
+
+“q / (2p) is… 3.25.  
+So max error is 3. Sounds fine.”
+
+Alice (already opening Python):
+
+“And the values?  
+ε = Lift(Round(x)) − x?”
+
+Bob (skeptical):
+
+“You’re going to compute all 3329 values?  
+No way that’s interesting.”
+
+---
+
+### Two hours later.
+
+Alice (pulling Bob by the sleeve):
+
+“Look at this.  
+Max is 3 — fine.  
+But the distribution… it’s not uniform.  
+It has holes. Like Swiss cheese.”
+
+Bob:
+
+“What?  
+(looks at the plot)  
+That’s not ‘small noise’.  
+That’s a deterministic pattern.”
+
+Alice:
+
+“And the variance is 3.617, not 3.523.  
+It’s not huge — but it’s not negligible either.  
+It’s like saying a bridge is safe with 97.3% confidence  
+and you replying: ‘meh, that’s only 2.7% less’.”
+
+Bob:
+
+“Okay, but what do we do with that?  
+We can’t rewrite all of lattice theory over 2.7%.”
+
+Alice:
+
+“What if… instead of pretending rounding is noise,  
+we admit it’s the main character?  
+Enumerate everything.  
+Measure it exactly.  
+And build guarantees from that?”
+
+Bob:
+
+“That’s… backwards compared to everything we do.”
+
+Alice (smiles):
+
+“So? Let’s try it. Just for fun.”
+
+---
+
+### One week later.
+
+Alice:
+
+“I built a hint system.  
+It’s like rounding whispering:  
+‘Hey, this coefficient is near the edge — keep an eye on it.’”
+
+Bob:
+
+“And it works?”
+
+Alice:
+
+“It does.  
+And the hint is deterministic.  
+You can compute it from (v, m) alone.  
+No secrets. FO loves it.”
+
+Bob:
+
+“Wait…  
+So you built a scheme where rounding isn’t background noise —  
+it’s an explicit actor.”
+
+Alice:
+
+“Exactly.  
+Once you know how rounding fails,  
+you can predict where it fails  
+and leave breadcrumbs to fix it.”
+
+Bob:
+
+“This is wild.  
+A fully transparent mechanism where nothing is hidden.”
+
+Alice (sudden movement, spills coffee on the keyboard):
+
+“Damn.  
+That’s actually a great paper title.  
+‘Rounding-Explicit.’”
+
+Bob:
+
+“So what’s the failure probability?”
+
+Alice:
+
+“2⁻³⁶.  
+Worse than Kyber, but…”  
+(pause)  
+“…proven.  
+No ‘we hope’. Only ‘we know’.”
+
+---
+
+### A week later, at a café.
+
+Bob:
+
+“So… what do we do with this?”
+
+Alice:
+
+“Nothing.”
+
+Bob:
+
+“Nothing?”
+
+Alice:
+
+“RELC won’t replace Kyber.  
+But now, whenever someone says  
+‘rounding is just noise’,  
+you can ask:  
+‘Why don’t we measure it instead of assuming it?’”
+
+Bob:
+
+“A reference.  
+Like a calibration standard for rounding error.”
+
+Alice:
+
+“Exactly.  
+And maybe one day, when someone designs a new scheme,  
+instead of hiding rounding in a footnote,  
+they’ll write:  
+‘Here is the exact distribution — like in RELC.’”
+
+Bob (raises his glass):
+
+“To an idea for dealing with unpredictability…  
+by measuring it.”
+
+Alice:
+
+“And naming it.”
+
+Bob:
+
+“And threatening to publish it if it misbehaves.”
+
+Both:
+
+(clink glasses)
+
+“Cheers.”
+:)
