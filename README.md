@@ -1,43 +1,43 @@
-# RELC — Rounding-Explicit Lattice Cryptographic Framework
+# RELC — Rounding-Explicit Lattice Cryptographic Research
 
-**Status:** Draft  
-**Version:** AFEOL-RELC-768R  
-**Author:** Dragan Mitić  
-**License:** CC BY-SA 4.0  
+**Status:** Proposed research draft 0.2; not production software
+**Author:** Dragan Mitić
+**License:** CC BY-SA 4.0
 
-RELC (AFEOL RELC) is a rounding-explicit cryptographic framework based on
-module-lattice constructions.
+RELC studies explicit rounding errors in module-lattice encryption models.
+The current proposal is a correctness-first redesign with no public hint.
+It contains a worst-case proof of decryption correctness for a conservative
+parameter profile, plus reproducible scalar statistics and test software.
 
-Unlike conventional lattice schemes that treat compression and rounding
-as implementation details, RELC models rounding as a first-class
-cryptographic primitive with:
+It has no assigned security level and no established IND-CPA, IND-CCA, or QROM
+security guarantee. Correct decryption does not imply secure encryption.
+The increased modulus was chosen for correctness; its hardness needs review.
 
-- exact empirical error statistics,
-- formally bounded correctness,
-- explicit failure probability,
-- and provable CCA security via the FO transform.
+## Specification
 
-## Repository Structure
+[Draft 0.2](spec/RELC_Specification_v0.2_Draft.md) is the current proposal.
+The December 2025 draft is withdrawn: its hint exposes message bits, its
+correction is ineffective, and its numerical/security claims require correction.
+The replacement document includes a correction record; Git history preserves
+the previous text.
 
-RELC/
-├── spec/ # Normative mathematical specification
-├── docs/ # Explanatory documents (future)
-├── reference/ # Reference material and papers
-├── scripts/ # Verification & analysis scripts
-└── tests/ # Correctness / failure simulations
+## Repository
 
+- `spec/`: specification and withdrawal notice
+- `scripts/verify_model.py`: exact-arithmetic, test-only verifier
+- `tests/`: mathematical regression tests
+- `SECURITY.md`: research-only security policy
 
-## Canonical Specification
+## Verify
 
-The authoritative specification is located at:
+Python 3.10 or later; no third-party dependencies:
 
-spec/RELC_Specification_v1.0_Draft.md
+```sh
+python scripts/verify_model.py
+python -m unittest discover -s tests -v
+```
 
-
-## Disclaimer
-
-This project is a research artifact.
-It is **not production software** and has not undergone
-independent cryptographic review or standardization.
-
-For production use, consult NIST-standardized schemes such as ML-KEM.
+The verifier uses predictable randomness for reproducibility. It is not an
+implementation suitable for encrypting actual data. Independent cryptanalysis,
+security reductions, concrete attack estimates, and implementation review remain
+open. For production use, consult standardized schemes such as ML-KEM.
